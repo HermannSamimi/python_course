@@ -46,7 +46,7 @@ for i in range (10):
     BOT_TOKEN = os.getenv("telegram_token")
     CHAT_ID = "-1002830405443"
 
-    MESSAGE = "data"
+    MESSAGE = f"{i}"
 
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"

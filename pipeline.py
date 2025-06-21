@@ -64,3 +64,24 @@ for i in range (10):
         print("Failed to send message:", response.text)
     sleep(3)  
 
+
+# slack message :
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK")
+
+message = "Hello, Slack!"
+
+def send_message(text: str):
+    payload = {
+        "text": text
+    }
+    resp = requests.post(SLACK_WEBHOOK, json=payload)
+    resp.raise_for_status()
+
+os.environ["SLACK_WEBHOOK"] = "https://hooks.slack.com/services/…"
+send_message(message)

@@ -76,28 +76,30 @@ with open(dkk_path, 'w') as eur_file:
 
 # ------------------------ # create a telegram bot -------------------------
 
-# for i in range (10):
-#     BOT_TOKEN = os.getenv("telegram_token")
-#     CHAT_ID = "-1002830405443"
+BOT_TOKEN = os.getenv("telegram_token")
+if not BOT_TOKEN:
+    print("❌ telegram_token not found in .env")
+    exit()
 
-#     MESSAGE = f"{i}"
+CHAT_ID = "-1002830405443"
 
+for i in range(10):
+    MESSAGE = f"Test message {i}"
+    telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-#     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": CHAT_ID,
+        "text": MESSAGE
+    }
 
-#     payload = {
-#         "chat_id": CHAT_ID,
-#         "text": MESSAGE
-#     }
+    response = requests.post(telegram_url, data=payload)
 
-#     response = requests.post(url, data=payload)
+    if response.status_code == 200:
+        print(f"✅ Message {i} sent")
+    else:
+        print(f"❌ Failed to send message {i}:", response.text)
 
-#     if response.status_code == 200:
-#         print("Message sent successfully.")
-#     else:
-#         print("Failed to send message:", response.text)
-#     sleep(3)  
-
+    sleep(3)
 
 # # slack message :
 # import os

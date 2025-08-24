@@ -5,7 +5,7 @@
 
 <img src="https://www.python.org/static/community_logos/python-logo-master-v3-TM.png" width="30%" style="position: absolute; top: 0; right: 0;" alt="Project Logo"/>
 
-# PYTHON_COURSE.GIT
+# PYTHON COURSE - 2025[Q2]
 
 <em><em>
 
